@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ConcesionarioAlgoritmo</string>
     <string name="action_settings">Settings</string>
+    <string name="placa">Placa</string>
+    <string name="kilometraje">Kilometraje</string>
+    <string name="color">Color</string>
+    <string name="registrarauto">Registar Auto</string>
+    <string name="guardar">Guardar</string>
+    <string name="borrar">Borrar</string>
+    <string name="marca">Marca</string>
 </resources>
