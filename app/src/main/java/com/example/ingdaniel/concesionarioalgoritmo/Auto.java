@@ -120,13 +120,12 @@ public class Auto {
     }
     public void guardarRemoto(final Context contexto){
         new AsyncTask<Void, Void, String>(){
-
             @Override
             protected String doInBackground(Void... params) {
                 HttpURLConnection conexion = null;
 
                 try {
-                    URL url = new URL("http://54.237.241.125/guardar_au.php");
+                    URL url = new URL("http://54.237.241.125/guardarau.php");
                     conexion =(HttpURLConnection)url.openConnection();
                     conexion.setConnectTimeout(30000);
                     conexion.setReadTimeout(30000);

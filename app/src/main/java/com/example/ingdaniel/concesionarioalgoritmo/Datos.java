@@ -39,7 +39,7 @@ public class Datos {
                 autos.add(a);
             } while (c.moveToNext());
         }
-        //Cierro la base de datos y retorno personas
+        //Cierro la base de datos y retorno
         db.close();
         return autos;
     }
@@ -53,7 +53,7 @@ public class Datos {
         AutosSQLiteOpenHelper aux = new AutosSQLiteOpenHelper(contexto,"DBAutos",null);
         db = aux.getReadableDatabase();
         //Cursor
-        sql ="select * from Personas where placa ='"+ced+"'";
+        sql ="select * from autos where placa ='"+ced+"'";
         Cursor c =db.rawQuery(sql,null);
         //Recorido del cursor
         if(c.moveToFirst()){
@@ -65,7 +65,7 @@ public class Datos {
             idfoto=c.getString(5);
             a = new Auto (uuid, urlfoto, placa, kilometraje, color,idfoto);
         }
-        //Cierro la base de datos y retorno personas
+        //Cierro la base de datos y retorno
         db.close();
         return a;
     }

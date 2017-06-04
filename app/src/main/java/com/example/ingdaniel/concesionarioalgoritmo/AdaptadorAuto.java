@@ -19,9 +19,9 @@ public class AdaptadorAuto extends RecyclerView.Adapter<AdaptadorAuto.AutoViewHo
 
     private ArrayList<Auto> autos;
 
-    private OnPersonaClickListener clickListener;
+    private OnAutoClickListener clickListener;
 
-    public AdaptadorAuto(ArrayList<Auto> autos, OnPersonaClickListener clickListener){
+    public AdaptadorAuto(ArrayList<Auto> autos, OnAutoClickListener clickListener){
         this.autos=autos;
         this.clickListener=clickListener;
     }
@@ -46,7 +46,7 @@ public class AdaptadorAuto extends RecyclerView.Adapter<AdaptadorAuto.AutoViewHo
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.OnPersonaClick(a);
+                clickListener.OnAutoClick(a);
             }
         });
 
@@ -77,8 +77,8 @@ public class AdaptadorAuto extends RecyclerView.Adapter<AdaptadorAuto.AutoViewHo
         }
     }
 
-    public interface OnPersonaClickListener{
-        void OnPersonaClick(Auto p);
+    public interface OnAutoClickListener{
+        void OnAutoClick(Auto p);
     }
 
 }
