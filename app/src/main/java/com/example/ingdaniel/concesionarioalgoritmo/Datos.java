@@ -16,7 +16,7 @@ public class Datos {
 
         //Declarar Variables
         SQLiteDatabase db;
-        String sql, uuid, urlfoto,placa, kilometraje, color,idfoto;
+        String sql, uuid, urlfoto, placa, kilometraje, color, marca, idfoto;
         Auto a;
         //Abrir conexción
         AutosSQLiteOpenHelper aux = new AutosSQLiteOpenHelper(contexto,"DBAutos",null);
@@ -35,7 +35,8 @@ public class Datos {
                 kilometraje=c.getString(3);
                 color=c.getString(4);
                 idfoto=c.getString(5);
-                a = new Auto (uuid, urlfoto, placa, kilometraje, color,idfoto);
+                marca=c.getString(6);
+                a = new Auto (uuid, urlfoto, placa, kilometraje, color, marca,idfoto);
                 autos.add(a);
             } while (c.moveToNext());
         }
@@ -44,30 +45,5 @@ public class Datos {
         return autos;
     }
 
-    public static Auto buscarAuto(Context contexto, String ced){
-        //Declarar Variables
-        SQLiteDatabase db;
-        String sql, uuid, urlfoto,placa, kilometraje, color,idfoto;
-        Auto a=null;
-        //Abrir conexción
-        AutosSQLiteOpenHelper aux = new AutosSQLiteOpenHelper(contexto,"DBAutos",null);
-        db = aux.getReadableDatabase();
-        //Cursor
-        sql ="select * from autos where placa ='"+ced+"'";
-        Cursor c =db.rawQuery(sql,null);
-        //Recorido del cursor
-        if(c.moveToFirst()){
-            uuid=c.getString(0);
-            urlfoto = c.getString(1);
-            placa=c.getString(2);
-            kilometraje=c.getString(3);
-            color=c.getString(4);
-            idfoto=c.getString(5);
-            a = new Auto (uuid, urlfoto, placa, kilometraje, color,idfoto);
-        }
-        //Cierro la base de datos y retorno
-        db.close();
-        return a;
-    }
 
 }

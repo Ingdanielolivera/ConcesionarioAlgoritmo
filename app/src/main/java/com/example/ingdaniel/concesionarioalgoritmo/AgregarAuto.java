@@ -114,25 +114,18 @@ public class AgregarAuto extends AppCompatActivity {
 
 
     public void guardar(View v) throws IOException {
-        String urlfoto, placa, kilometraje, color, marca,idfoto;
+        String foto, placa, kilometraje, color, marca,idfoto;
         Auto a;
         if (validartodo()) {
 
+            foto=String.valueOf(fotoAleatoria());
             placa = cajaPlaca.getText().toString();
             kilometraje = cajaKilometraje.getText().toString();
             color = cajaColor.getText().toString();
             marca =cajaMarca.getText().toString();
             idfoto=String.valueOf(fotoAleatoria());
 
-            Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),Integer.parseInt(idfoto));
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
-            byte[]imagenBytes = baos.toByteArray();
-            urlfoto= Base64.encodeToString(imagenBytes,Base64.DEFAULT);
-
-            baos.close();
-
-            a = new Auto(urlfoto, placa, kilometraje, color, marca,idfoto);
+            a = new Auto(foto, placa, kilometraje, color, marca, idfoto);
             a.guardar(getApplicationContext());
 
             //Ocultar teclado

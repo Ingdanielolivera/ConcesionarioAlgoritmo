@@ -51,15 +51,13 @@ public class Principal extends AppCompatActivity implements AdaptadorAuto.OnAuto
 
    @Override
     public void OnAutoClick(Auto a) {
-   /* //finish();
-        Intent i = new Intent(Principal.this,DetallePersona.class);
-        Bundle b = new Bundle();
-        b.putString("nombre",p.getNombre());
-        b.putString("apellido",p.getApellido());
-        b.putString("urlfoto",p.getUrlfoto());
-
-        i.putExtra("datos",b);
-        startActivity(i);*/
+       finish();
+       Intent i = new Intent(Principal.this,DetalleAuto.class);
+       Bundle b = new Bundle();
+       b.putString("placa",a.getPlaca());
+       i.putExtra("datos",b);
+       startActivity(i);
+       overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
 }

@@ -37,12 +37,10 @@ public class AdaptadorAuto extends RecyclerView.Adapter<AdaptadorAuto.AutoViewHo
     public void onBindViewHolder(AdaptadorAuto.AutoViewHolder holder, int position) {
         //datos
         final Auto a = autos.get(position);
-        // holder.foto.setImageResource(Integer.parseInt(p.getUrlfoto()));
-        Picasso.with(holder.view.getContext()).load(a.getUrlfoto()).into(holder.foto);
+        holder.foto.setImageResource(Integer.parseInt(a.getUrlfoto()));
         holder.placa.setText(a.getPlaca());
         holder.kilometraje.setText(a.getKilometraje());
         holder.color.setText(a.getColor());
-
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
